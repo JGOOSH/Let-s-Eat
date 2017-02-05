@@ -10,8 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.letseat.let_s_eat.MainActivity">
 
-    <TextView
+    <Button
+        android:text="Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button_search"
+        android:onClick="searchOnclick"/>
 </RelativeLayout>
