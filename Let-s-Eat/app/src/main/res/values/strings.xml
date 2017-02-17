@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Let-s-Eat</string>
+    <string-array name="array_name">
+        <item>Ben</item>
+        <item>Chris</item>
+        <item>Donald</item>
+        <item>Holly</item>
+        <item>Matthew</item>
+        <item>Braeyln</item>
+        <item>Nidhi</item>
+        <item>Rhea</item>
+        <item>Basquiat</item>
+        <item>Jacob</item>
+        <item>Krishna</item>
+        <item>Kei</item>
+    </string-array>
 </resources>
