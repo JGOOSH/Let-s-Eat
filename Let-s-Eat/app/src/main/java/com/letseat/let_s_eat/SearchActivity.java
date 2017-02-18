@@ -2,27 +2,44 @@ package com.letseat.let_s_eat;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class SearchActivity extends Activity {
+public class SearchActivity extends Activity implements SearchView.OnQueryTextListener {
 
-    ArrayAdapter<String> adapter;
+    //variables
+    ListView listView;
+    ListViewAdapter adapter;
+    SearchView editSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        ListView listView = (ListView)findViewById(R.id.view_searchList);
-        ArrayList<String> arrayName = new ArrayList<>();
-        arrayName.addAll(Arrays.asList(getResources().getStringArray(R.array.array_name)));
-
-        adapter = new ArrayAdapter<String>(SearchActivity.this,
-                android.R.layout.simple_list_item_1, arrayName);
-        listView.setAdapter(adapter);
+        listView = (ListView) findViewById(R.id.view_searchList);
+        ArrayList<Names> arrayName = new ArrayList<Names>();
+        for(String name : getResources().getStringArray(R.array.array_name)){
+         arrayName.add(new Names(name));
         }
+        adapter = new ListViewAdapter(this, arrayName);
+        listView.setAdapter(adapter);
+
+        editSearch = (SearchView)findViewById(R.id.view_search);
+        editSearch.setOnQueryTextListener(this);
     }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String text = newText;
+        adapter.filter(text);
+        return false;
+    }
+}
 
