@@ -120,9 +120,7 @@ class GooglePlacesAPIHandler {
                 HttpGet httpGet = new HttpGet(uri);
                 HttpResponse response = client.execute(httpGet);
                 if(response.getStatusLine().getStatusCode() == 200) {
-                    BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-                    imgs.add(ImageIO.read(new File(br.readLine())));
-                    br.close();
+                    imgs.add(ImageIO.read(response.getEntity().getContent()));
                 } else {
                     System.err.println(response.getStatusLine() + ": Place Not Found");
                     return null;
@@ -131,8 +129,10 @@ class GooglePlacesAPIHandler {
             return imgs;
         } catch(URISyntaxException e) {
             System.err.println("Google API disabled");
+            System.err.println(e);
         } catch(IOException e) {
             System.err.println("No Response Error");
+            System.err.println(e);
         }
         return null;
     }
@@ -142,7 +142,14 @@ class GooglePlacesAPIHandler {
         HttpResponse response = client.execute(httpGet);
         BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
         JsonParser parser = new JsonParser();
-        JsonObject jo = parser.parse(br.readLine()).getAsJsonObject();
+        StringBuilder allAPI = new StringBuilder();
+        String temp = "";
+        temp = br.readLine();
+        while(temp != null) {
+            allAPI.append(temp);
+            temp = br.readLine();
+        }
+        JsonObject jo = parser.parse(allAPI.toString()).getAsJsonObject();
         br.close();
         return jo;
     }
