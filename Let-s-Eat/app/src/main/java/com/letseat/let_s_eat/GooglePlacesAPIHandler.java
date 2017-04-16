@@ -14,7 +14,7 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-import java.awt.image.BufferedImage;
+//import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -27,10 +27,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.imageio.ImageIO;
+//import javax.imageio.ImageIO;
 
 
 class GooglePlacesAPIHandler {
+    /*
     private double lat, lon;
     private CloseableHttpClient client;
     private String APIKey;
@@ -159,4 +160,5 @@ class GooglePlacesAPIHandler {
         br.close();
         return jo;
     }
+    */
 }
