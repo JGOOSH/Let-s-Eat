@@ -20,9 +20,20 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
+    compile files('libs/gson-2.8.0.jar')
+    compile files('libs/HTTPClient/commons-codec-1.9.jar')
+    compile files('libs/HTTPClient/commons-logging-1.2.jar')
+    compile files('libs/HTTPClient/fluent-hc-4.5.3.jar')
+    compile files('libs/HTTPClient/httpclient-4.5.3.jar')
+    compile files('libs/HTTPClient/httpclient-cache-4.5.3.jar')
+    compile files('libs/HTTPClient/httpclient-win-4.5.3.jar')
+    compile files('libs/HTTPClient/httpcore-4.4.6.jar')
+    compile files('libs/HTTPClient/httpmime-4.5.3.jar')
+    compile files('libs/HTTPClient/jna-4.1.0.jar')
+    compile files('libs/HTTPClient/jna-platform-4.1.0.jar')
 }
