@@ -1,3 +1,4 @@
+/*
 import org.junit.Test;
 
 import static junit.framework.Assert.assertTrue;
@@ -5,13 +6,21 @@ import static junit.framework.Assert.fail;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
-
+*/
 /**
  * Created by Hojae Jung on 3/3/2017.
  */
 
+import com.letseat.let_s_eat.Place;
+
+import java.io.IOException;
+
+import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.fail;
+
 public class APIAustinTest {
 
+    /*
     GooglePlacesAPIHandler gpah;
 
     public void createHandler() {
@@ -36,4 +45,5 @@ public class APIAustinTest {
         Place whataburger = gpah.getSearchResult("Whataburger").getFirst();
         assertTrue(gpah.getImages(whataburger, 10000, 10000) != null);
     }
+    */
 }
