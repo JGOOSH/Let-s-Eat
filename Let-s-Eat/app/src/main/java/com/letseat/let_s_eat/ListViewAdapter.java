@@ -20,15 +20,15 @@ public class ListViewAdapter extends BaseAdapter {
 
     Context mContext;
     LayoutInflater inflater;
-    private List<Names> namesList = null;
-    private ArrayList<Names> arraylist;
+    private List<TestPlace> testPlaceList = null;
+    private ArrayList<TestPlace> arraylist;
 
-    public ListViewAdapter(Context context, List<Names> namesList) {
+    public ListViewAdapter(Context context, List<TestPlace> testPlaceList) {
         mContext = context;
-        this.namesList = namesList;
+        this.testPlaceList = testPlaceList;
         inflater = LayoutInflater.from(mContext);
-        this.arraylist = new ArrayList<Names>();
-        this.arraylist.addAll(namesList);
+        this.arraylist = new ArrayList<TestPlace>();
+        this.arraylist.addAll(testPlaceList);
     }
 
     public class ViewHolder {
@@ -37,12 +37,12 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return namesList.size();
+        return testPlaceList.size();
     }
 
     @Override
-    public Names getItem(int position) {
-        return namesList.get(position);
+    public TestPlace getItem(int position) {
+        return testPlaceList.get(position);
     }
 
     @Override
@@ -61,20 +61,20 @@ public class ListViewAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         // Set the results into TextViews
-        holder.name.setText(namesList.get(position).getName());
+        holder.name.setText(testPlaceList.get(position).getName());
         return view;
     }
 
     // Filter Class
     public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());
-        namesList.clear();
+        testPlaceList.clear();
         if (charText.length() == 0) {
-            namesList.addAll(arraylist);
+            testPlaceList.addAll(arraylist);
         } else {
-            for (Names wp : arraylist) {
+            for (TestPlace wp : arraylist) {
                 if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText)) {
-                    namesList.add(wp);
+                    testPlaceList.add(wp);
                 }
             }
         }
