@@ -24,9 +24,9 @@ public class SearchActivity extends Activity implements SearchView.OnQueryTextLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         listView = (ListView) findViewById(R.id.view_searchList);
-        ArrayList<Names> arrayName = new ArrayList<Names>();
+        ArrayList<TestPlace> arrayName = new ArrayList<TestPlace>();
         for(String name : getResources().getStringArray(R.array.array_name)){
-         arrayName.add(new Names(name));
+         arrayName.add(new TestPlace(name));
         }
         adapter = new ListViewAdapter(this, arrayName);
         listView.setAdapter(adapter);
