@@ -31,5 +31,7 @@ public class TestPlace {
 
     public String getId() {return id; }
 
-    public boolean open() {return open;}
+    public boolean getOpen() {return open;}
+
+    public double getDistance() {return distance;}
 }

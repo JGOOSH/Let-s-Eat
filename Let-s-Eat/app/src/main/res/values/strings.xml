@@ -2,7 +2,6 @@
     <string name="app_name">Let-s-Eat</string>
     <string-array name="array_name">
         <item>Don</item>
-        <item>Julie's Noodles</item>
         <item>Whattaburger</item>
         <item>Halal Bros</item>
         <item>LongHorn Chickens</item>
@@ -10,8 +9,8 @@
         <item>Taco Bell</item>
         <item>J2</item>
         <item>Kinsolving</item>
-        <item></item>
-        <item>Krishna</item>
-        <item>Kei</item>
+        <item>Kerbey</item>
+        <item>Potbelly</item>
+        <item>Moojo</item>
     </string-array>
 </resources>
