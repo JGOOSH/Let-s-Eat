@@ -32,7 +32,7 @@ public class TestPlace implements Parcelable {
     public TestPlace(String name){
         String id = Integer.toString(name.hashCode());
         this.name = name;
-        this.open = random.nextInt(1) == 1;
+        this.open = random.nextBoolean();
         this.distance = random.nextDouble()*100;
     }
 

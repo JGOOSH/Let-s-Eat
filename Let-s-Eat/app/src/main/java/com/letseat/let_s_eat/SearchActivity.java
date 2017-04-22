@@ -71,6 +71,7 @@ public class SearchActivity extends Activity implements SearchView.OnQueryTextLi
         Toast toast = Toast.makeText(getApplicationContext(), selected, Toast.LENGTH_SHORT);
         toast.show();
         Intent intent = new Intent(SearchActivity.this, ProfileActivity.class);
+        intent.putExtra("data", data);
         SearchActivity.this.startActivity(intent);
     }
 }
