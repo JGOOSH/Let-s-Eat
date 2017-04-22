@@ -1,5 +1,8 @@
 package com.letseat.let_s_eat;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Random;
 
 /**
@@ -9,7 +12,8 @@ import java.util.Random;
  * Will substitute with real data in future
  */
 
-public class TestPlace {
+public class TestPlace implements Parcelable {
+    //parcel data types
     private String id;
     private String name;
     private boolean open;
@@ -17,6 +21,13 @@ public class TestPlace {
 
     //random obj for randomizing the attributes
     Random random = new Random();
+
+    public TestPlace(Parcel p){
+        id = p.readString();
+        name = p.readString();
+        open =  (p.readInt() == 0) ? false: true;
+        distance = p.readDouble();
+    }
 
     public TestPlace(String name){
         String id = Integer.toString(name.hashCode());
@@ -34,4 +45,28 @@ public class TestPlace {
     public boolean getOpen() {return open;}
 
     public double getDistance() {return distance;}
-}
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeInt(open ? 1 : 0); //if open, write 1 otherwise 0
+        dest.writeDouble(distance);
+    }
+    public static final Parcelable.Creator<TestPlace> CREATOR
+            = new Parcelable.Creator<TestPlace>() {
+        public TestPlace createFromParcel(Parcel p){
+            return new TestPlace(p);
+        }
+
+        public TestPlace[] newArray(int size){
+            return new TestPlace[size];
+        }
+    };
+
+    }

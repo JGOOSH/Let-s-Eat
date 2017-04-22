@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import static com.letseat.let_s_eat.R.id.place;
+
 /**
  * Created by GOOSH on 2/17/2017.
  */
@@ -27,7 +29,7 @@ public class ListViewAdapter extends BaseAdapter {
         mContext = context;
         this.testPlaceList = testPlaceList;
         inflater = LayoutInflater.from(mContext);
-        this.arraylist = new ArrayList<TestPlace>();
+        this.arraylist = new ArrayList<>();
         this.arraylist.addAll(testPlaceList);
     }
 
@@ -55,7 +57,7 @@ public class ListViewAdapter extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.list_view_items, null);
-            holder.name = (TextView) view.findViewById(R.id.name);
+            holder.name = (TextView) view.findViewById(place);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -65,16 +67,20 @@ public class ListViewAdapter extends BaseAdapter {
         return view;
     }
 
-    // Filter Class
+    /*
+    method to update the list of items based on the query string input
+     */
     public void filter(String charText) {
+        //to ignore case
         charText = charText.toLowerCase(Locale.getDefault());
+        //first empty the current list
         testPlaceList.clear();
         if (charText.length() == 0) {
             testPlaceList.addAll(arraylist);
         } else {
-            for (TestPlace wp : arraylist) {
-                if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText)) {
-                    testPlaceList.add(wp);
+            for (TestPlace item : arraylist) {
+                if (item.getName().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    testPlaceList.add(item);
                 }
             }
         }
