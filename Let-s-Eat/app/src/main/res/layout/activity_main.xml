@@ -10,12 +10,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.letseat.let_s_eat.MainActivity">
 
+    <TextView
+        android:id="@+id/text_place_param"
+        android:text="Where to Eat?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <Button
         android:text="Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/button_search"
+        android:layout_below="@id/text_place_param"
         android:onClick="searchOnclick"/>
+    <TextView
+        android:id="@+id/text_time_param"
+        android:text="At what time?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_search"/>
+    <Button
+        android:id="@+id/button_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_time_param"/>
+    <TextView
+        android:id="@+id/text_message_param"
+        android:text="Any Message? (Optional)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_time"/>
+    <Button
+        android:id="@+id/button_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_message_param"/>
+    <Button
+        android:id="@+id/button_share"
+        android:text="Share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_message"/>
 </RelativeLayout>
