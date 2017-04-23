@@ -32,7 +32,8 @@
         android:id="@+id/button_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_time_param"/>
+        android:layout_below="@id/text_time_param"
+        android:onClick="showTimePickerDialog"/>
     <TextView
         android:id="@+id/text_message_param"
         android:text="Any Message? (Optional)"
