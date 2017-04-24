@@ -64,8 +64,6 @@ public class SearchActivity extends Activity implements SearchView.OnQueryTextLi
      */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //toast to make sure that I am getting the right object
-        //String selected = ((TextView) view.findViewById(R.id.place)).getText().toString();
         TestPlace data = adapter.getItem(position);
         String selected = data.getName();
         Toast toast = Toast.makeText(getApplicationContext(), selected, Toast.LENGTH_SHORT);
