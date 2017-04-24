@@ -20,8 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_search"
-        android:layout_below="@id/text_place_param"
-        android:onClick="searchOnclick"/>
+        android:onClick="searchOnclick"
+        android:layout_below="@+id/text_place_param"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <TextView
         android:id="@+id/text_time_param"
         android:text="At what time?"
@@ -36,19 +38,21 @@
         android:onClick="showTimePickerDialog"/>
     <TextView
         android:id="@+id/text_message_param"
-        android:text="Any Message? (Optional)"
+        android:text="Any Message?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/button_time"/>
-    <Button
-        android:id="@+id/button_message"
+    <EditText
+        android:id="@+id/editText_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_message_param"/>
+        android:layout_below="@id/text_message_param"
+        android:text="(Optional)"
+        android:onClick="textOnClick"/>
     <Button
         android:id="@+id/button_share"
         android:text="Share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_message"/>
+        android:layout_below="@+id/editText_msg"/>
 </RelativeLayout>
