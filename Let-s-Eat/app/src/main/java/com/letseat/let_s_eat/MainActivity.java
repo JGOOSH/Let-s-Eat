@@ -16,12 +16,19 @@ public class MainActivity extends Activity implements TimePickerDialog.OnTimeSet
     private EditText editTextMsg;
     private int pickerHour;
     private int pickerMin;
+    private TestPlace place;
+    private Button search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         timeButton = (Button)findViewById(R.id.button_time);
         editTextMsg = (EditText)findViewById(R.id.editText_msg);
+        place = (TestPlace) getIntent().getParcelableExtra("place_param_data");
+        search = (Button)findViewById(R.id.button_search);
+        if(place != null){
+            search.setText(place.getName());
+        }
     }
 
     public void searchOnclick(View view){
