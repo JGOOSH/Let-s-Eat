@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 public class MainActivity extends Activity implements TimePickerDialog.OnTimeSetListener {
+    //instance variables
     private Button timeButton;
     private EditText editTextMsg;
     private int pickerHour;
@@ -58,5 +59,19 @@ public class MainActivity extends Activity implements TimePickerDialog.OnTimeSet
      */
     public void textOnClick(View view){
         editTextMsg.setText("");
+    }
+
+    public void shareOnClick(View view){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        StringBuilder sb = new StringBuilder();
+        sb.append(place.getName());
+        sb.append("\n");
+        sb.append(timeButton.getText());
+        sb.append("\n");
+        sb.append(editTextMsg.getText());
+        sendIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, "Share with..."));
     }
 }
