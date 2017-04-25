@@ -1,12 +1,12 @@
 /**
  * Created by Hojae Jung on 2/3/2017.
  */
+package com.letseat.let_s_eat;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.letseat.let_s_eat.Place;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -14,7 +14,6 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-//import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -22,16 +21,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
-//import javax.imageio.ImageIO;
+//import java.awt.image.BufferedImage; not supported by android
+
+//import javax.imageio.ImageIO; not supported by android
 
 
 class GooglePlacesAPIHandler {
-    /*
+
     private double lat, lon;
     private CloseableHttpClient client;
     private String APIKey;
@@ -113,7 +112,7 @@ class GooglePlacesAPIHandler {
         }
         return null;
     }
-
+/*
     public List<BufferedImage> getImages(Place place, int height, int width) {
         List<BufferedImage> imgs = new ArrayList<>();
         try {
@@ -143,7 +142,7 @@ class GooglePlacesAPIHandler {
         }
         return null;
     }
-
+*/
     private JsonObject getResponse(URI uri) throws IOException {
         HttpGet httpGet = new HttpGet(uri);
         HttpResponse response = client.execute(httpGet);
@@ -160,5 +159,4 @@ class GooglePlacesAPIHandler {
         br.close();
         return jo;
     }
-    */
 }
