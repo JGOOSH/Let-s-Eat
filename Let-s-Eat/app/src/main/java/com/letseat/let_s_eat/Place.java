@@ -1,6 +1,5 @@
 package com.letseat.let_s_eat;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 /**
@@ -11,14 +10,14 @@ public class Place {
     private String name;
     private boolean open;
     private String icon;
-    private JsonArray photo;
+    //private JsonArray photo;
 
     public Place(JsonObject jo) {
         this.id = jo.get("id").getAsString();
         this.name = jo.get("name").getAsString();
         this.open = jo.get("opening_hours").getAsJsonObject().get("open_now").getAsBoolean();
         this.icon = jo.get("icon").getAsString();
-        this.photo = jo.get("photos").getAsJsonArray();
+        //this.photo = jo.get("photos").getAsJsonArray();
     }
 
     public String getId() {
@@ -37,7 +36,9 @@ public class Place {
         return this.icon;
     }
 
+    /*
     protected JsonArray getPhoto() {
         return this.photo;
     }
+    */
 }

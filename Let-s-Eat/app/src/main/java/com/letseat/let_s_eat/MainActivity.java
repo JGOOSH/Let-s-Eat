@@ -35,7 +35,6 @@ public class MainActivity extends Activity implements TimePickerDialog.OnTimeSet
     public void searchOnclick(View view){
         Intent intent = new Intent(this,SearchActivity.class);
         startActivity(intent);
-        //finish();
     }
 
     /*
@@ -61,6 +60,10 @@ public class MainActivity extends Activity implements TimePickerDialog.OnTimeSet
         editTextMsg.setText("");
     }
 
+    /*
+    method to share the inviation (text) when clicking the share button
+    needs to work on refactoring because message should be built in other method
+     */
     public void shareOnClick(View view){
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
