@@ -13,16 +13,30 @@ import java.util.ArrayList;
 
 public class SearchActivity extends Activity implements SearchView.OnQueryTextListener, AdapterView.OnItemClickListener{
 
+    //sample data to map UT Austin Campus to check whether API is working
+    private final double UTLat = 30.2849;
+    private final double UTLong = -97.7401;
+
     //variables
     ListView listView;
     ListViewAdapter adapter;
     SearchView editSearch;
     ArrayList<TestPlace> arrayPlaces;
+    GooglePlacesAPIHandler placesHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        /*
+        if(placesHandler == null) {
+            try {
+                placesHandler = new GooglePlacesAPIHandler(UTLat, UTLong);
+            } catch (IOException e) {
+                fail("API failed");
+            }
+        }
+        */
         listView = (ListView) findViewById(R.id.view_searchList);
         //arraylist to hold data
         arrayPlaces = new ArrayList<TestPlace>();
